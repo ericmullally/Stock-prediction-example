@@ -5,11 +5,14 @@ from sklearn.preprocessing import MinMaxScaler
 from keras.models import Sequential
 from keras.layers import Dense, Dropout, LSTM 
 
+
 class StockModel:
 
     """ builds the machine learning model.
         runs analysis on the past stock prices. then attempts to predict
-        the future prices. 
+        the future prices.
+
+        Params: Pandas dataframe. 
     """
    
     def __init__(self, dataFrame):
@@ -24,8 +27,12 @@ class StockModel:
        self.training_ds = self.scaledData[:self.train_set_length]
        self.test_ds = self.scaledData[self.test_set_length::-1]
 
+
+
     """ scales the data to elimiate anomolies caused 
-        by greatly different values.
+        by vastly different values.
+        
+        returns: Array of scaled data points from 0 - 1 
     """
     def scaleData(self, dataSet):
         scaler = MinMaxScaler(feature_range=(0,1))

@@ -2,11 +2,15 @@ import sys
 from json import loads
 import pandas as pd
 import StockModel
+from gui.Root import MainWindow
+
 
 
 def main():
-    #print("r")
-    createModel()
+    mainWindow = MainWindow()
+    mainWindow.show()
+ 
+
 
 
 def createModel():
